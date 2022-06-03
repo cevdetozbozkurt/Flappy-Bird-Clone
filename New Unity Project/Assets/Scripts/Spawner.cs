@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float time;
+    public Bird bird;
+    public GameObject Pipes;
+    public float height;
+
+    private void Start()
     {
-        
+        StartCoroutine(SpawnerObject(time));
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator SpawnerObject(float time)
     {
-        
+        while (!bird.isDead)
+        {
+            Instantiate(Pipes, new Vector3(1.76f, Random.Range(-height, height), 0), Quaternion.identity);
+
+            yield return new WaitForSeconds(time);
+        }
     }
 }

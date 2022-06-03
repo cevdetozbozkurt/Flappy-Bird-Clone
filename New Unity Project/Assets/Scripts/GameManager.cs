@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public int score = 0;
+    public Text ScoreText;
+
+
+    public void UpdateScore()
     {
-        
+        score++;
+        ScoreText.text = score.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
